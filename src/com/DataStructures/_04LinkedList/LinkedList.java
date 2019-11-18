@@ -63,6 +63,7 @@ public class LinkedList<E> {
         if(index==0){
             addFirst(e);
         }else {
+            //prev为新添加节点node之前的节点
             Node prev=head;
             //带插入的节点前面的那个节点
             for (int i =0;i<index-1;i++){
