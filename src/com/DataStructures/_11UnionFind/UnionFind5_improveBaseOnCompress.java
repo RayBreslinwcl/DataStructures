@@ -15,7 +15,7 @@ public class UnionFind5_improveBaseOnCompress implements UF {
     //rank[i] 当使用压缩后，rank不代表深度，而只是一个参考
 
     public UnionFind5_improveBaseOnCompress(int size){
-        parent =new int [size];
+        parent =new int[size];
         rank=new int[size];
         for (int i=0;i<size;i++){
             parent[i]=i;
@@ -54,9 +54,6 @@ public class UnionFind5_improveBaseOnCompress implements UF {
             parent[qRoot] =pRoot;
             rank[pRoot]+=1;
         }
-
-
-
 
     }
 
