@@ -64,6 +64,7 @@ public class LinkedListQueue<E> implements queue<E> {
         Node retNode=head;
         head=head.next;
         retNode.next=null;
+        //如果链表只有1个元素，则减去一个元素后，head=null，同时tail=null
         if (head==null)
             tail=null;
         size--;
