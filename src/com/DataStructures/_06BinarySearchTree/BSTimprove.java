@@ -194,8 +194,8 @@ public class BSTimprove<E extends Comparable<E>> {
         if(node==null)
             return;
 
-        inOrder(node.left);
-        inOrder(node.right);
+        postOrder(node.left);
+        postOrder(node.right);
         System.out.println(node.e);
     }
     //*****************************************************
