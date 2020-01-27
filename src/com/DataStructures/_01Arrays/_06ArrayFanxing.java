@@ -7,6 +7,7 @@ public class _06ArrayFanxing<E> {
     private E[] data; //数组
     private int size; //数组中实际元素个数
 
+    //======================构造函数===================
     //构造函数，传入数组的容量capacity
     public _06ArrayFanxing(int capacity){
         data=(E[])new Object[capacity];
