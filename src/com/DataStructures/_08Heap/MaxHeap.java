@@ -83,9 +83,11 @@ public class MaxHeap <E extends Comparable<E>>{
     //下沉操作
     private void siftDown(int k){
         while (leftChild(k)<data.getSize()){
+            //当有左孩子时，就证明该节点至少有子孩子
+            //j是指代表将要交换的节点：可能是左，也可能是右节点
             int j=leftChild(k);// 在此轮循环中,data[k]和data[j]交换位置
             if(j+1<data.getSize()&&//说明有右孩子
-                    data.get(j+1).compareTo(data.get(j))>0){  //这里比较左孩子j，有孩子j+1的大小，取比较大值
+                    data.get(j+1).compareTo(data.get(j))>0){  //这里比较左孩子j，右孩子j+1的大小，取比较大值
                 j++;
             }
             // data[j] 是 leftChild 和 rightChild 中的最大值
