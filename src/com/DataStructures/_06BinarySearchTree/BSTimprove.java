@@ -282,13 +282,18 @@ public class BSTimprove<E extends Comparable<E>> {
     // 删除掉以node为根的二分搜索树中的最小节点
     // 返回删除节点后新的二分搜索树的根
     private Node removeMin(Node node){
+        //（1）如果查找到最小值，则直接删除
+        //同时，使用该节点右子树（如果有）替代该节点
         if(node.left==null){
+            //原理：使用使用该节点右子树替换该节点,而因为是一直向左查找，右子树的值一定小于爷爷
+            //所以满足二叉树性质！
             Node rightNode=node.right;
             node.right=null;
             size--;
             return rightNode;
         }
 
+        //（2）如果没有找到最小值，则继续向左查找
         node.left=removeMin(node.left);
         return node;
     }
@@ -312,7 +317,7 @@ public class BSTimprove<E extends Comparable<E>> {
             return rightNode;
         }
 
-        node.right=removeMin(node.right);
+        node.right=removeMax(node.right);
         return node;
     }
     /**
@@ -336,7 +341,7 @@ public class BSTimprove<E extends Comparable<E>> {
             node.right=remove(node.right,e);
             return node;
         }else { // e.compareTo(node.e) == 0
-            //待删除节点左子树为空
+            //（1）待删除节点左子树为空
             if(node.left==null){
                 Node rightNode=node.right;
                 node.right=null;
@@ -344,7 +349,7 @@ public class BSTimprove<E extends Comparable<E>> {
                 return rightNode;
             }
 
-            // 待删除节点右子树为空的情况
+            // （2）待删除节点右子树为空的情况
             if(node.right==null){
                 Node leftNode=node.left;
                 node.left=null;
@@ -352,7 +357,7 @@ public class BSTimprove<E extends Comparable<E>> {
                 return leftNode;
             }
 
-            // 待删除节点左右子树均不为空的情况
+            // （3）待删除节点左右子树均不为空的情况
             // 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
             // 用这个节点顶替待删除节点的位置
             Node successor=minimum(node.right);

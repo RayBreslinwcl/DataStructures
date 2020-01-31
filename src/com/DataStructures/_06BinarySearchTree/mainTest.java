@@ -15,6 +15,6 @@ public class mainTest {
         //前序遍历
         bsTimprove.preOrder();
         System.out.println();
-        System.out.println(bsTimprove);;
+        System.out.println(bsTimprove);
     }
 }
